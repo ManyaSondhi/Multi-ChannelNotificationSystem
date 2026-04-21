@@ -1,0 +1,367 @@
+[{
+  "_id": {
+    "$oid": "690f5aa2ad57dde1618bb16c"
+  },
+  "name": "Welcome Email",
+  "code": "WELCOME",
+  "version": 1,
+  "description": "Welcome email for new users",
+  "channels": {
+    "email": {
+      "enabled": true,
+      "subject": "Welcome to {{appName}}, {{name}}!",
+      "html": "\n              <h1>Welcome to {{appName}}!</h1>\n              <p>Hi {{name}},</p>\n              <p>Thank you for joining us. We're excited to have you on board!</p>\n              <p>Your account has been created successfully.</p>\n            ",
+      "text": "Welcome to {{appName}}, {{name}}! Thank you for joining us."
+    },
+    "sms": {
+      "enabled": true,
+      "body": "Welcome to {{appName}}, {{name}}! Your account has been created."
+    },
+    "webpush": {
+      "enabled": true,
+      "title": "Welcome to {{appName}}!",
+      "body": "Hi {{name}}, thank you for joining us!"
+    },
+    "whatsapp": {
+      "enabled": true,
+      "body": "🎉 Welcome to {{appName}}, {{name}}!\n\nThank you for joining us. We're excited to have you on board!\n\nYour account has been created successfully."
+    }
+  },
+  "variables": [
+    {
+      "name": "appName",
+      "description": "Application name",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a67"
+      }
+    },
+    {
+      "name": "name",
+      "description": "User name",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a68"
+      }
+    }
+  ],
+  "isActive": true,
+  "createdBy": {
+    "$oid": "690d9cc8858607059d2d766e"
+  },
+  "createdAt": {
+    "$date": "2025-11-08T14:58:42.351Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-08T16:23:30.101Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "690f5aa2ad57dde1618bb170"
+  },
+  "name": "Password Reset",
+  "code": "PASSWORD_RESET",
+  "version": 1,
+  "description": "Password reset notification",
+  "channels": {
+    "email": {
+      "enabled": true,
+      "subject": "Reset your password",
+      "html": "\n              <h1>Password Reset Request</h1>\n              <p>Hi {{name}},</p>\n              <p>You requested to reset your password. Click the link below:</p>\n              <p><a href=\"{{resetLink}}\">Reset Password</a></p>\n              <p>This link will expire in {{expiryMinutes}} minutes.</p>\n            ",
+      "text": "Hi {{name}}, reset your password: {{resetLink}}"
+    },
+    "sms": {
+      "enabled": true,
+      "body": "Password reset requested. Link: {{resetLink}}"
+    },
+    "webpush": {
+      "enabled": true,
+      "title": "Password Reset",
+      "body": "Click to reset your password",
+      "data": {
+        "action": "password-reset"
+      }
+    },
+    "whatsapp": {
+      "enabled": true,
+      "body": "🔐 Password Reset Request\n\nHi {{name}},\n\nYou requested to reset your password. Click the link below:\n\n{{resetLink}}\n\nThis link will expire in {{expiryMinutes}} minutes.\n\nIf you didn't request this, please ignore this message."
+    }
+  },
+  "variables": [
+    {
+      "name": "name",
+      "description": "User name",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a6e"
+      }
+    },
+    {
+      "name": "resetLink",
+      "description": "Reset password URL",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a6f"
+      }
+    },
+    {
+      "name": "expiryMinutes",
+      "description": "Link expiration time",
+      "required": false,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a70"
+      }
+    }
+  ],
+  "isActive": true,
+  "createdBy": {
+    "$oid": "690d9cc8858607059d2d766e"
+  },
+  "createdAt": {
+    "$date": "2025-11-08T14:58:42.686Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-08T16:23:30.509Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "690f5aa2ad57dde1618bb175"
+  },
+  "name": "Order Confirmation",
+  "code": "ORDER_CONFIRMATION",
+  "version": 1,
+  "description": "Order confirmation notification",
+  "channels": {
+    "email": {
+      "enabled": true,
+      "subject": "Order #{{orderNumber}} confirmed",
+      "html": "\n              <h1>Order Confirmed!</h1>\n              <p>Hi {{name}},</p>\n              <p>Your order #{{orderNumber}} has been confirmed.</p>\n              <p>Total: ${{total}}</p>\n              <p>Thank you for your purchase!</p>\n            ",
+      "text": "Order #{{orderNumber}} confirmed. Total: ${{total}}"
+    },
+    "sms": {
+      "enabled": true,
+      "body": "Order #{{orderNumber}} confirmed. Total: ${{total}}"
+    },
+    "webpush": {
+      "enabled": true,
+      "title": "Order Confirmed",
+      "body": "Order #{{orderNumber}} - ${{total}}",
+      "data": {
+        "orderNumber": "{{orderNumber}}"
+      }
+    },
+    "whatsapp": {
+      "enabled": true,
+      "body": "✅ Order Confirmed!\n\nHi {{name}},\n\nYour order #{{orderNumber}} has been confirmed.\n\nTotal: ${{total}}\n\nThank you for your purchase! 🎉"
+    }
+  },
+  "variables": [
+    {
+      "name": "name",
+      "description": "Customer name",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a76"
+      }
+    },
+    {
+      "name": "orderNumber",
+      "description": "Order number",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a77"
+      }
+    },
+    {
+      "name": "total",
+      "description": "Order total",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a78"
+      }
+    }
+  ],
+  "isActive": true,
+  "createdBy": {
+    "$oid": "690d9cc8858607059d2d766e"
+  },
+  "createdAt": {
+    "$date": "2025-11-08T14:58:42.788Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-08T16:23:30.735Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "690f6e82945f0f41a3cb2a7b"
+  },
+  "name": "Special Offer",
+  "code": "SPECIAL_OFFER",
+  "version": 1,
+  "description": "Special offer notification",
+  "channels": {
+    "email": {
+      "enabled": true,
+      "subject": "Special Offer: {{data.discount}}% Off!",
+      "html": "\n              <h1>Special Offer for You!</h1>\n              <p>Hi {{name}},</p>\n              <p>We have a special offer just for you!</p>\n              <p>Get {{data.discount}}% off on your next purchase.</p>\n              <p>Use code: <strong>{{data.couponCode}}</strong></p>\n              <p>Valid until: {{data.validUntil}}</p>\n              <p><a href=\"{{data.offerLink}}\">Claim Your Offer</a></p>\n            ",
+      "text": "Special Offer: {{data.discount}}% off! Use code: {{data.couponCode}}"
+    },
+    "sms": {
+      "enabled": true,
+      "body": "Special Offer: {{data.discount}}% off! Use code: {{data.couponCode}}. Valid until {{data.validUntil}}"
+    },
+    "webpush": {
+      "enabled": true,
+      "title": "Special Offer: {{data.discount}}% Off!",
+      "body": "Use code: {{data.couponCode}}",
+      "data": {
+        "couponCode": "{{data.couponCode}}",
+        "discount": "{{data.discount}}"
+      },
+      "actions": []
+    },
+    "whatsapp": {
+      "enabled": true,
+      "body": "🎁 Special Offer!\n\nHi {{name}},\n\nGet {{data.discount}}% off on your next purchase!\n\nUse code: {{data.couponCode}}\n\nValid until: {{data.validUntil}}\n\n{{data.offerLink}}"
+    }
+  },
+  "variables": [
+    {
+      "name": "name",
+      "description": "Customer name",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a7c"
+      }
+    },
+    {
+      "name": "data.discount",
+      "description": "Discount percentage",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a7d"
+      }
+    },
+    {
+      "name": "data.couponCode",
+      "description": "Coupon code",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a7e"
+      }
+    },
+    {
+      "name": "data.validUntil",
+      "description": "Offer expiration date",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a7f"
+      }
+    },
+    {
+      "name": "data.offerLink",
+      "description": "Offer link URL",
+      "required": false,
+      "_id": {
+        "$oid": "690f6e82945f0f41a3cb2a80"
+      }
+    }
+  ],
+  "isActive": true,
+  "createdBy": {
+    "$oid": "690d9cc8858607059d2d766e"
+  },
+  "createdAt": {
+    "$date": "2025-11-08T16:23:30.940Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-08T16:23:30.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690f6e83945f0f41a3cb2a83"
+  },
+  "name": "Session Reminder",
+  "code": "SESSION_REMINDER",
+  "version": 1,
+  "description": "Session reminder notification",
+  "channels": {
+    "email": {
+      "enabled": true,
+      "subject": "Reminder: Your session is coming up",
+      "html": "\n              <h1>Session Reminder</h1>\n              <p>Hi {{name}},</p>\n              <p>This is a reminder that your session is scheduled for:</p>\n              <p><strong>Date:</strong> {{data.sessionDate}}</p>\n              <p><strong>Time:</strong> {{data.sessionTime}}</p>\n              <p><strong>Location:</strong> {{data.sessionLocation}}</p>\n              <p>We look forward to seeing you!</p>\n            ",
+      "text": "Reminder: Your session on {{data.sessionDate}} at {{data.sessionTime}}"
+    },
+    "sms": {
+      "enabled": true,
+      "body": "Reminder: Your session is on {{data.sessionDate}} at {{data.sessionTime}}. Location: {{data.sessionLocation}}"
+    },
+    "webpush": {
+      "enabled": true,
+      "title": "Session Reminder",
+      "body": "Your session is on {{data.sessionDate}} at {{data.sessionTime}}",
+      "data": {
+        "sessionDate": "{{data.sessionDate}}",
+        "sessionTime": "{{data.sessionTime}}"
+      },
+      "actions": []
+    },
+    "whatsapp": {
+      "enabled": true,
+      "body": "📅 Session Reminder\n\nHi {{name}},\n\nYour session is scheduled for:\n\nDate: {{data.sessionDate}}\nTime: {{data.sessionTime}}\nLocation: {{data.sessionLocation}}\n\nWe look forward to seeing you!"
+    }
+  },
+  "variables": [
+    {
+      "name": "name",
+      "description": "User name",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e83945f0f41a3cb2a84"
+      }
+    },
+    {
+      "name": "data.sessionDate",
+      "description": "Session date",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e83945f0f41a3cb2a85"
+      }
+    },
+    {
+      "name": "data.sessionTime",
+      "description": "Session time",
+      "required": true,
+      "_id": {
+        "$oid": "690f6e83945f0f41a3cb2a86"
+      }
+    },
+    {
+      "name": "data.sessionLocation",
+      "description": "Session location",
+      "required": false,
+      "_id": {
+        "$oid": "690f6e83945f0f41a3cb2a87"
+      }
+    }
+  ],
+  "isActive": true,
+  "createdBy": {
+    "$oid": "690d9cc8858607059d2d766e"
+  },
+  "createdAt": {
+    "$date": "2025-11-08T16:23:31.155Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-08T16:23:31.155Z"
+  },
+  "__v": 0
+}]

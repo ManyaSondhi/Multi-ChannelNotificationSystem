@@ -1,0 +1,33 @@
+# MongoDB (Docker will override this)
+MONGODB_URI=mongodb://mongodb:27017/notificationsystem
+
+# Server Configuration
+PORT=5000
+NODE_ENV=production
+DOCKER_ENV=true
+
+# JWT
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_EXPIRES_IN=7d
+
+# Twilio Configuration
+TWILIO_ACCOUNT_SID=your-twilio-account-sid
+TWILIO_AUTH_TOKEN=your-twilio-auth-token
+TWILIO_PHONE_NUMBER=your-twilio-phone-number
+TWILIO_WHATSAPP_NUMBER=whatsapp:+14155238886
+
+# Email Configuration (Nodemailer)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-email-password
+EMAIL_FROM=noreply@notificationsystem.com
+
+# Web Push Configuration
+VAPID_PUBLIC_KEY=your-vapid-public-key
+VAPID_PRIVATE_KEY=your-vapid-private-key
+VAPID_SUBJECT=mailto:your-email@example.com
+
+# Base URL (for webhooks - use your actual domain in production)
+BASE_URL=http://localhost:5000
+
